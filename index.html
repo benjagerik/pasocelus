@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paso Celulares - Tienda de Dispositivos y Accesorios</title>
+    <meta name="description" content="Encuentra celulares, audio, cargadores y mucho más en Paso de la Patria. Calidad premium y garantía certificada.">
+    <!-- Open Graph / SEO Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Paso Celulares | Paso de la Patria">
+    <meta property="og:description" content="Catálogo online de celulares, accesorios y tecnología. ¡Consultanos por WhatsApp!">
+    <meta property="og:image" content="fotos_productos/hero_composition.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="ecommerce-container">
+            <div class="top-bar-left">
+                <i data-lucide="map-pin"></i> <span>25 de Mayo 826, Paso de la Patria</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://wa.me/5493416000000" target="_blank"><i data-lucide="phone"></i> <span>Atención por WhatsApp</span></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="ecommerce-container header-inner">
+            <a href="#" class="header-logo admin-trigger-btn" id="nav-btn-logo">
+                <img src="logo.png" alt="Paso Celulares" class="logo-img">
+            </a>
+            
+            <div class="header-search">
+                <input type="text" id="header-search-input" placeholder="Buscar productos, marcas y más...">
+                <button id="header-search-btn" aria-label="Buscar"><i data-lucide="search"></i></button>
+            </div>
+            
+            <div class="header-actions">
+                <a href="https://wa.me/5493416000000" target="_blank" class="header-action-btn">
+                    <i data-lucide="message-circle"></i>
+                    <span>Soporte</span>
+                </a>
+                <a href="#" class="header-action-btn" id="cart-btn" aria-label="Abrir Carrito">
+                    <div style="position: relative;">
+                        <i data-lucide="shopping-cart"></i>
+                        <span id="cart-count" class="cart-badge" style="display: none;">0</span>
+                    </div>
+                    <span>Carrito</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="ecommerce-container nav-inner">
+            <ul class="nav-links">
+                <li><a href="#catalogo" class="nav-category-trigger"><i data-lucide="menu"></i> Categorías</a></li>
+                <li><a href="#catalogo" class="nav-highlight">Catálogo Completo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Promotional Banner -->
+    <section class="promo-banner-section">
+        <div class="ecommerce-container">
+            <div class="promo-banner">
+                <div class="banner-content">
+                    <h2>OFERTAS EN CELULARES</h2>
+                    <h3>LA MEJOR TECNOLOGÍA AL MEJOR PRECIO</h3>
+                    <a href="#catalogo" class="btn-banner">Ver Catálogo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios (Naldo style) -->
+    <section class="benefits-ecommerce">
+        <div class="ecommerce-container">
+            <div class="benefits-row">
+                <div class="benefit-item">
+                    <i data-lucide="shield-check"></i>
+                    <div class="benefit-text">
+                        <strong>GARANTÍA ESCRITA</strong>
+                        <span>En todos los equipos</span>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i data-lucide="map-pin"></i>
+                    <div class="benefit-text">
+                        <strong>RETIRO EN LOCAL</strong>
+                        <span>Paso de la Patria</span>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i data-lucide="message-square"></i>
+                    <div class="benefit-text">
+                        <strong>ATENCIÓN PERSONAL</strong>
+                        <span>Vía WhatsApp</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Store Section (Apple Store Style) -->
+    <main class="store-section" id="catalogo">
+        <div class="store-container">
+            <div class="store-header">
+                <h2 class="store-section-title">Tienda. <span>Explora nuestro stock en tiempo real.</span></h2>
+            </div>
+            
+
+            <!-- Category Cards Grid -->
+            <section class="category-icons-section">
+                <div class="category-icons-row" id="category-carousel">
+                    <div class="category-icon-item" data-category="Celulares" onclick="selectCategoryFromCard('Celulares')">
+                        <div class="icon-circle"><img src="fotos_productos/01-celulares.png" alt="Celulares"></div>
+                        <span>Celulares</span>
+                    </div>
+                    <div class="category-icon-item" data-category="Audio" onclick="selectCategoryFromCard('Audio')">
+                        <div class="icon-circle"><img src="fotos_productos/02-audio.png" alt="Audio"></div>
+                        <span>Audio</span>
+                    </div>
+                    <div class="category-icon-item" data-category="Cargadores" onclick="selectCategoryFromCard('Cargadores')">
+                        <div class="icon-circle"><img src="fotos_productos/03-cargadores.png" alt="Cargadores"></div>
+                        <span>Cargadores</span>
+                    </div>
+                    <div class="category-icon-item" data-category="PC" onclick="selectCategoryFromCard('PC')">
+                        <div class="icon-circle"><img src="fotos_productos/04-cosas-para-pc.png" alt="PC"></div>
+                        <span>PC</span>
+                    </div>
+                    <div class="category-icon-item" data-category="Cabello" onclick="selectCategoryFromCard('Cabello')">
+                        <div class="icon-circle"><img src="fotos_productos/05-cosas-del-pelo.png" alt="Cabello"></div>
+                        <span>Cabello</span>
+                    </div>
+                    <div class="category-icon-item" data-category="Smartwatches" onclick="selectCategoryFromCard('Smartwatches')">
+                        <div class="icon-circle"><img src="fotos_productos/06-smartwatches.png" alt="Smartwatches"></div>
+                        <span>Smartwatches</span>
+                    </div>
+                    <div class="category-icon-item" data-category="Soportes" onclick="selectCategoryFromCard('Soportes')">
+                        <div class="icon-circle"><img src="fotos_productos/07-soportes.png" alt="Soportes"></div>
+                        <span>Soportes</span>
+                    </div>
+                    <div class="category-icon-item" data-category="Vapes" onclick="selectCategoryFromCard('Vapes')">
+                        <div class="icon-circle"><img src="fotos_productos/08-vapes.png" alt="Vapes"></div>
+                        <span>Vapes</span>
+                    </div>
+                    <div class="category-icon-item" data-category="Hogar" onclick="selectCategoryFromCard('Hogar')">
+                        <div class="icon-circle"><img src="fotos_productos/09-hogar-y-gadgets.png" alt="Hogar"></div>
+                        <span>Hogar</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Controls & Filters Section -->
+            <section class="store-controls" style="padding: 15px 0;">
+                <div class="filters-container" style="justify-content: flex-start; gap: 15px;">
+                    <div class="filter-group">
+                        <select id="brand-filter" class="filter-select">
+                            <option value="all">Todas las marcas</option>
+                            <!-- Se llena dinámicamente -->
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <select id="category-filter" class="filter-select">
+                            <option value="all">Todas las categorías</option>
+                            <!-- Se llena dinámicamente -->
+                        </select>
+                    </div>
+
+
+
+                    <div class="filter-group">
+                        <select id="price-sort" class="filter-select">
+                            <option value="default">Recomendados</option>
+                            <option value="price-asc">Menor precio</option>
+                            <option value="price-desc">Mayor precio</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="active-filters-info" id="active-filters-summary" style="display: none;">
+                    <span>Resultados filtrados activos</span>
+                    <button id="reset-all-filters" class="reset-link-btn">Limpiar filtros</button>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section class="products-section">
+                <!-- Subcategory pills horizontal scroll -->
+                <div class="subcategory-pills-container" id="subcategory-pills-container" style="display: none;">
+                    <!-- Se llena dinámicamente -->
+                </div>
+
+                <div class="results-header">
+                    <p class="results-count" id="results-count-text">Cargando catálogo...</p>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="products-grid" id="products-grid">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Cargando dispositivos disponibles...</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div class="modal-backdrop" id="product-modal" style="display: none;">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="close-modal-btn" aria-label="Cerrar modal">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-body" id="modal-content-area">
+                <!-- Se llena dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Modal -->
+    <div class="modal-backdrop" id="cart-modal" style="display: none;">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="close-cart-btn" aria-label="Cerrar modal">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-header-simple" style="padding-bottom: 10px; border-bottom: 1px solid var(--border-light); margin-bottom: 20px;">
+                <h3 style="display: flex; align-items: center; gap: 10px; font-size: 20px;"><i data-lucide="shopping-cart"></i> Tu Carrito de Compras</h3>
+            </div>
+            <div class="modal-body-simple" id="cart-items-container" style="max-height: 50vh; overflow-y: auto;">
+                <!-- Se llena dinámicamente -->
+            </div>
+            <div class="cart-footer" style="margin-top: 20px; border-top: 1px solid var(--border-light); padding-top: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                    <span style="font-size: 18px; font-weight: 600;">Total:</span>
+                    <span id="cart-total-price" style="font-size: 24px; font-weight: 700; color: #000;">$ 0</span>
+                </div>
+                <div id="cart-points-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; color: #2e7d32; font-weight: 600; font-size: 14px;">
+                    <span style="display: flex; align-items: center;"><i data-lucide="gift" style="width:16px; height:16px; margin-right:6px;"></i> Puntos Paso:</span>
+                    <span id="cart-total-points">+0 pts</span>
+                </div>
+                <button id="checkout-btn" class="btn btn-whatsapp btn-full btn-lg" style="padding: 15px; font-size: 16px;">
+                    <i data-lucide="message-circle"></i> Pedir por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Access Modal -->
+    <div class="modal-backdrop" id="admin-auth-modal" style="display: none;">
+        <div class="modal-card modal-small">
+            <button class="modal-close-btn" id="close-admin-auth-btn" aria-label="Cerrar modal">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-header-simple">
+                <h3>Acceso de Administración</h3>
+                <p>Ingresa la contraseña para gestionar el inventario localmente.</p>
+            </div>
+            <div class="modal-body-simple">
+                <div class="form-group">
+                    <label for="admin-password">Contraseña</label>
+                    <input type="password" id="admin-password" placeholder="Ingresa la contraseña..." class="form-input">
+                    <p class="error-text" id="auth-error-msg" style="display: none;">Contraseña incorrecta. Intenta de nuevo.</p>
+                </div>
+                <button id="submit-auth-btn" class="btn btn-primary btn-full">Ingresar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel-container" id="admin-panel" style="display: none;">
+        <div class="admin-header">
+            <div class="admin-title">
+                <h2>Panel de Control</h2>
+                <p>Gestión de Stock en Tiempo Real</p>
+            </div>
+            <div class="admin-actions">
+                <button class="btn btn-secondary" id="admin-add-product-btn"><i data-lucide="plus"></i> Nuevo Producto</button>
+                <button class="btn btn-outline" id="admin-export-btn"><i data-lucide="download"></i> Descargar JSON</button>
+                <button class="btn btn-warning" id="admin-reset-db-btn" title="Restablecer base de datos local al estado del servidor"><i data-lucide="refresh-cw"></i> Restablecer</button>
+                <button class="btn btn-danger" id="admin-logout-btn"><i data-lucide="log-out"></i> Salir</button>
+            </div>
+        </div>
+
+        <div class="admin-stats-bar">
+            <div class="stat-card">
+                <div class="stat-icon"><i data-lucide="smartphone"></i></div>
+                <div class="stat-info">
+                    <span class="stat-value" id="stat-total-products">0</span>
+                    <span class="stat-label">Total Equipos</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i data-lucide="layers"></i></div>
+                <div class="stat-info">
+                    <span class="stat-value" id="stat-total-categories">0</span>
+                    <span class="stat-label">Categorías</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-content-grid">
+            <!-- Formulario de Edición/Creación -->
+            <div class="admin-form-card" id="admin-product-form-container" style="display: none;">
+                <div class="form-header">
+                    <h3 id="form-title">Agregar Producto</h3>
+                    <button class="btn-close-form" id="close-form-btn"><i data-lucide="x"></i></button>
+                </div>
+                <form id="product-form" class="admin-form">
+                    <input type="hidden" id="form-product-id">
+                    
+                    <div class="form-row">
+                        <div class="form-group col-8">
+                            <label for="form-name">Nombre / Modelo *</label>
+                            <input type="text" id="form-name" required placeholder="Ej: iPhone 15 Pro Max 256GB">
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="form-brand">Marca *</label>
+                            <input type="text" id="form-brand" required placeholder="Ej: Apple">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label for="form-price">Precio ($ ARS) *</label>
+                            <input type="number" id="form-price" required min="0" placeholder="Ej: 45000">
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="form-category-select">Categoría *</label>
+                            <select id="form-category-select" required>
+                                <!-- Se llena dinámicamente -->
+                            </select>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="form-subcategory-select">Subcategoría *</label>
+                            <select id="form-subcategory-select" required>
+                                <!-- Se llena dinámicamente -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6" id="new-category-group" style="display: none;">
+                            <label for="form-new-category">Nueva Categoría *</label>
+                            <input type="text" id="form-new-category" placeholder="Ej: Fundas">
+                        </div>
+                        <div class="form-group col-6" id="new-subcategory-group" style="display: none;">
+                            <label for="form-new-subcategory">Nueva Subcategoría *</label>
+                            <input type="text" id="form-new-subcategory" placeholder="Ej: Auriculares In-Ear">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="form-description">Descripción Comercial</label>
+                        <textarea id="form-description" rows="3" placeholder="Garantía, accesorios incluidos, marcas estéticas..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Foto del Producto (Subir o Pegar)</label>
+                        <div class="image-upload-zone" id="image-upload-zone">
+                            <i data-lucide="image-plus" class="upload-icon"></i>
+                            <span class="upload-title">Arrastra una foto aquí</span>
+                            <span class="upload-subtitle">o haz clic para examinar (soporta Ctrl+V para pegar)</span>
+                            <input type="file" id="form-image-file" accept="image/*" style="display: none;">
+                        </div>
+                        <input type="hidden" id="form-image">
+                    </div>
+
+                    <div class="form-row" style="margin-top: -10px; margin-bottom: -10px;">
+                        <div class="form-group col-6 checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="form-remove-bg" checked>
+                                Remover fondo con IA (WASM)
+                            </label>
+                        </div>
+                        <div class="form-group col-6 checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="form-enhance-quality" checked>
+                                Optimizar brillo y nitidez
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Loader de procesamiento de imagen -->
+                    <div id="image-processing-loader" style="display: none; padding: 12px; background: #f5f5f7; border-radius: var(--radius-sm); align-items: center; justify-content: center; gap: 8px; font-size: 13px; color: var(--apple-text-gray-dark); margin-top: 5px;">
+                        <div class="spinner" style="width: 18px; height: 18px; border-width: 2px; margin-bottom: 0;"></div>
+                        <span id="image-loader-text">Procesando imagen con IA...</span>
+                    </div>
+
+                    <!-- Vista previa de la imagen cargada/procesada -->
+                    <div id="image-preview-container" style="display: none; margin-top: 15px; text-align: center; padding: 10px; background: #ffffff; border-radius: var(--radius-sm); border: 1px dashed rgba(0,0,0,0.1);">
+                        <span style="font-size: 12px; font-weight: 600; color: var(--apple-text-gray-dark); display: block; margin-bottom: 8px;">Vista Previa del Producto</span>
+                        <img id="form-image-preview" src="" alt="Vista previa" style="max-height: 350px; max-width: 100%; object-fit: contain; border-radius: var(--radius-sm); border: 1px solid rgba(0,0,0,0.05); background: #ffffff; padding: 4px; box-shadow: var(--shadow-sm);">
+                    </div>
+
+                    <div class="form-row" style="margin-top: 15px; margin-bottom: 15px;">
+                        <div class="form-group col-6 checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="form-featured">
+                                ¿Producto Destacado? (Prioridad en lista)
+                            </label>
+                        </div>
+                        <div class="form-group col-6 checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="form-on-sale">
+                                ¿En Oferta? (Mostrará cartel de Oferta)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancel-form-btn">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" id="save-product-btn">Guardar Producto</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Gestión de Puntos -->
+            <div class="admin-table-card" style="margin-bottom: 20px;">
+                <div class="table-header" style="border-bottom: 1px solid var(--border-light); padding-bottom: 15px; margin-bottom: 15px;">
+                    <h3><i data-lucide="gift"></i> Carga Rápida de Puntos</h3>
+                    <p style="font-size: 13px; color: #666; margin-top: 5px;">Añade puntos a un cliente cuando compra en el local físico.</p>
+                </div>
+                
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: flex-end;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <label class="form-label">Número de Celular</label>
+                        <input type="number" id="admin-points-phone" class="form-input" placeholder="Ej: 3416000000">
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <label class="form-label">Monto Gastado ($)</label>
+                        <input type="number" id="admin-points-amount" class="form-input" placeholder="Ej: 15000">
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button type="button" class="btn btn-primary" onclick="adminAddPoints()" style="height: 44px; display: flex; align-items: center; gap: 8px;">
+                            <i data-lucide="plus"></i> Sumar
+                        </button>
+                        <button type="button" class="btn btn-outline" onclick="toggleAdminClients()" style="height: 44px; display: flex; align-items: center; gap: 8px;">
+                            <i data-lucide="users"></i> Clientes
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="admin-points-result" style="display: none; margin-top: 15px; padding: 12px; background: #e8f5e9; color: #2e7d32; border-radius: 8px; font-weight: 500; font-size: 14px;">
+                    <!-- Mensaje de éxito -->
+                </div>
+                
+                <!-- Lista de Clientes Oculta -->
+                <div id="admin-clients-list" style="display: none; margin-top: 20px; border-top: 1px solid var(--border-light); padding-top: 15px;">
+                    <h4 style="margin-bottom: 10px; font-size: 15px;">Base de Datos de Puntos</h4>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Celular (WhatsApp)</th>
+                                    <th>Puntos Acumulados</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-clients-tbody">
+                                <!-- Se llena dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla de Productos Administrables -->
+            <div class="admin-table-card">
+                <div class="table-header">
+                    <h3>Inventario Disponible</h3>
+                    <div class="table-search">
+                        <input type="text" id="admin-table-search" placeholder="Buscar en tabla...">
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Modelo</th>
+                                <th>Marca</th>
+                                <th>Categoría</th>
+                                <th>Subcategoría</th>
+                                <th>Precio</th>
+                                <th>Destacado</th>
+                                <th>Oferta</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-table-body">
+                            <!-- Se llena dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-instructions-card">
+            <div class="instructions-header">
+                <i data-lucide="sparkles" class="text-accent"></i>
+                <h4>¿Cómo agregar nuevos productos con fotos usando la IA?</h4>
+            </div>
+            <div class="instructions-body">
+                <ol>
+                    <li>Guarda las fotos que tomes a los celulares en la carpeta: <code class="filepath">paso celulares/fotos_productos/</code>.</li>
+                    <li>Nombra las fotos de forma que las identifiques (ej: <code>moto_g54.jpg</code>, <code>iphone_xr_rojo.jpg</code>).</li>
+                    <li>Vuelve a nuestro chat e indícame: <strong>"Analiza las nuevas fotos en la carpeta y agrégalas al catálogo"</strong>.</li>
+                    <li>Yo leeré las fotos con mi visión artificial, investigaré sus especificaciones técnicas y actualizaré automáticamente el archivo del catálogo.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="ecommerce-container">
+            <h2 class="section-title text-center" style="font-size: 28px; font-weight: 700; margin-bottom: 40px; text-align: center;">Preguntas Frecuentes</h2>
+            <div class="faq-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px;">
+                <div class="faq-card" style="background: #f9f9f9; padding: 30px; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border-light);">
+                    <div class="faq-icon" style="background: #000; color: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;"><i data-lucide="clock"></i></div>
+                    <h3 style="font-size: 18px; margin-bottom: 15px; color: #000;">¿Cuáles son los horarios?</h3>
+                    <p style="font-size: 14px; color: #555; line-height: 1.6;">Estamos abiertos de <strong>Lunes a Sábado</strong>:<br>Mañana: <strong>9:00 a 13:00</strong><br>Tarde: <strong>17:00 a 21:00</strong></p>
+                </div>
+                <div class="faq-card" style="background: #f9f9f9; padding: 30px; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border-light);">
+                    <div class="faq-icon" style="background: #000; color: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;"><i data-lucide="credit-card"></i></div>
+                    <h3 style="font-size: 18px; margin-bottom: 15px; color: #000;">¿Qué medios de pago aceptan?</h3>
+                    <p style="font-size: 14px; color: #555; line-height: 1.6;">¡Aceptamos <strong>todos los medios de pago</strong>!<br>Efectivo, transferencia, MercadoPago y tarjetas.</p>
+                </div>
+                <div class="faq-card" style="background: #f9f9f9; padding: 30px; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border-light);">
+                    <div class="faq-icon" style="background: #000; color: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;"><i data-lucide="shield-alert"></i></div>
+                    <h3 style="font-size: 18px; margin-bottom: 15px; color: #000;">¿Tienen garantía?</h3>
+                    <p style="font-size: 14px; color: #555; line-height: 1.6;"><strong>Sí, contra fallas de fábrica.</strong><br><em style="font-size: 12px; color: #888;">*Si el equipo sufre daños por mal uso pierde la garantía.</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apple-style Footer -->
+    <footer class="apple-footer">
+        <div class="footer-container">
+            <div class="footer-directory">
+                <div class="directory-col">
+                    <h3>Explorar</h3>
+                    <ul>
+                        <li><a href="#catalogo">Catálogo</a></li>
+                        <li><a href="https://wa.me/5493416000000" target="_blank">Soporte</a></li>
+                    </ul>
+                </div>
+                <div class="directory-col">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a href="https://wa.me/5493416000000" target="_blank">WhatsApp</a></li>
+                    </ul>
+                </div>
+                <div class="directory-col">
+                    <h3>Ubicación</h3>
+                    <ul>
+                        <li style="color: var(--apple-text-gray-dark); display: flex; align-items: flex-start; gap: 6px; line-height: 1.5;">
+                            <i data-lucide="map-pin" style="width: 14px; height: 14px; margin-top: 2px; flex-shrink: 0; color: var(--apple-text-dark);"></i>
+                            <span>25 de Mayo 826,<br>Paso de la Patria, Corrientes</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paso Celulares. Todos los derechos reservados.</p>
+                <p class="footer-legal">Desarrollado con inspiración en estándares estéticos minimalistas de alta fidelidad. Los precios y el stock pueden ser actualizados dinámicamente por el administrador.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5493416000000" target="_blank" class="floating-whatsapp" aria-label="Contactar por WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <script src="productos.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Inicializar los iconos de Lucide al cargar el DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
