@@ -63,7 +63,8 @@ const FALLBACK_PRODUCTS = [
 let state = {
     products: [],
     isAdmin: false,
-    activeSubcategory: ""
+    activeSubcategory: "",
+    visibleLimit: 24
 };
 
 // Estado del Carrito de Compras
@@ -400,15 +401,18 @@ function renderCatalog() {
     
     productsGrid.innerHTML = "";
     
-    filteredProducts.forEach(product => {
+    const totalFiltered = filteredProducts.length;
+    const paginatedProducts = filteredProducts.slice(0, state.visibleLimit);
+    
+    paginatedProducts.forEach(product => {
         const card = document.createElement("div");
         card.className = "product-card";
         card.setAttribute("data-id", product.id);
         
-        // Imagen con fallback elegante
+        // Imagen con fallback elegante y lazy loading
         const imageSrc = product.imagen && product.imagen.trim() !== "" ? product.imagen : "";
         const imageHtml = imageSrc 
-            ? `<img src="${imageSrc}" alt="${product.nombre}" class="card-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            ? `<img src="${imageSrc}" alt="${product.nombre}" class="card-image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                <div class="no-image-placeholder" style="display: none;"><i data-lucide="smartphone"></i><span>Sin Imagen</span></div>`
             : `<div class="no-image-placeholder"><i data-lucide="smartphone"></i><span>Sin Imagen</span></div>`;
             
@@ -473,6 +477,21 @@ function renderCatalog() {
         productsGrid.appendChild(card);
     });
     
+    // Si hay más productos de los que se están mostrando, agregar botón Cargar Más
+    if (state.visibleLimit < totalFiltered) {
+        const loadMoreContainer = document.createElement("div");
+        loadMoreContainer.style.width = "100%";
+        loadMoreContainer.style.display = "flex";
+        loadMoreContainer.style.justifyContent = "center";
+        loadMoreContainer.style.padding = "20px 0 40px 0";
+        loadMoreContainer.innerHTML = `
+            <button onclick="window.loadMoreProducts()" class="btn btn-secondary" style="border-radius: 20px; padding: 12px 30px; font-weight: 600;">
+                <i data-lucide="chevron-down"></i> Cargar más productos
+            </button>
+        `;
+        productsGrid.appendChild(loadMoreContainer);
+    }
+    
     // Instanciar iconos de lucide agregados dinámicamente
     lucide.createIcons();
     
@@ -529,8 +548,7 @@ function renderSubcategoryPills() {
     allPill.textContent = "Todos";
     allPill.addEventListener("click", () => {
         state.activeSubcategory = "";
-        renderCatalog();
-        updateResultsCount();
+        applyFiltersAndRender();
     });
     container.appendChild(allPill);
     
@@ -541,8 +559,7 @@ function renderSubcategoryPills() {
         pill.textContent = sub;
         pill.addEventListener("click", () => {
             state.activeSubcategory = sub;
-            renderCatalog();
-            updateResultsCount();
+            applyFiltersAndRender();
         });
         container.appendChild(pill);
     });
@@ -1088,21 +1105,28 @@ function exportJsonData() {
 // EVENT LISTENERS & AYUDANTES (HELPERS)
 // ==========================================================================
 
+window.loadMoreProducts = function() {
+    state.visibleLimit += 24;
+    renderCatalog();
+};
+
+function applyFiltersAndRender() {
+    state.visibleLimit = 24;
+    renderCatalog();
+    updateResultsCount();
+}
+
 function setupEventListeners() {
     // Buscador
     const headerSearchInput = document.getElementById("header-search-input");
     const headerSearchBtn = document.getElementById("header-search-btn");
     
     if (headerSearchInput) {
-        headerSearchInput.addEventListener("input", () => {
-            renderCatalog();
-            updateResultsCount();
-        });
+        headerSearchInput.addEventListener("input", applyFiltersAndRender);
         
         if (headerSearchBtn) {
             headerSearchBtn.addEventListener("click", () => {
-                renderCatalog();
-                updateResultsCount();
+                applyFiltersAndRender();
                 // Scroll al catálogo
                 document.getElementById("catalogo").scrollIntoView({ behavior: 'smooth' });
             });
@@ -1116,19 +1140,12 @@ function setupEventListeners() {
     }
     
     // Selectores de Filtro
-    document.getElementById("brand-filter").addEventListener("change", () => {
-        renderCatalog();
-        updateResultsCount();
-    });
+    document.getElementById("brand-filter").addEventListener("change", applyFiltersAndRender);
     document.getElementById("category-filter").addEventListener("change", () => {
         state.activeSubcategory = ""; // Limpiar subcategoría activa al cambiar de categoría
-        renderCatalog();
-        updateResultsCount();
+        applyFiltersAndRender();
     });
-    document.getElementById("price-sort").addEventListener("change", () => {
-        renderCatalog();
-        updateResultsCount();
-    });
+    document.getElementById("price-sort").addEventListener("change", applyFiltersAndRender);
     
     // Resetear Filtros
     document.getElementById("reset-all-filters").addEventListener("click", () => {
@@ -1138,7 +1155,7 @@ function setupEventListeners() {
         document.getElementById("category-filter").value = "all";
         state.activeSubcategory = "";
         document.getElementById("price-sort").value = "default";
-        renderCatalog();
+        applyFiltersAndRender();
         updateResultsCount();
     });
     
