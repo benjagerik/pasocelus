@@ -463,7 +463,7 @@ function renderCatalog() {
                 <h3 class="product-title" title="${product.nombre}">${product.nombre}</h3>
                 
                 <div class="price-row">
-                    ${isCelular 
+                    ${parseFloat(product.precio) > 0 
                         ? `<div class="price-container">
                                <span class="price-currency">$</span>
                                <span class="price-value">${formatPrice(product.precio)}</span>
@@ -472,19 +472,31 @@ function renderCatalog() {
                                Consultar precio
                            </div>`
                     }
+                    ${isCelular ? `
                     <div class="availability-badge">
                         <span class="dot-green"></span>
                         <span>Stock</span>
-                    </div>
+                    </div>` : ''}
                 </div>
                 
                 ${vapeBadgeHtml}
                 
                 <div class="card-actions">
-                    <a href="${getWhatsAppLink(product)}" target="_blank" class="btn btn-primary btn-whatsapp-primary">
-                        <i data-lucide="message-square"></i> Consultar WhatsApp
-                    </a>
-                    ${detailsButtonHtml}
+                    ${isCelular ? `
+                        <a href="${getWhatsAppLink(product)}" target="_blank" class="btn btn-primary btn-whatsapp-primary">
+                            <i data-lucide="message-square"></i> Consultar WhatsApp
+                        </a>
+                        ${detailsButtonHtml}
+                    ` : `
+                        <div style="display: flex; gap: 8px; width: 100%;">
+                            <a href="${getWhatsAppLink(product)}" target="_blank" class="btn btn-black" style="flex: 1; background-color: #000; color: #fff; font-size: 13px; padding: 10px 5px; justify-content: center; display: flex; align-items: center; border-radius: 8px; font-weight: 600; text-decoration: none;">
+                                Consultar precio
+                            </a>
+                            <button class="btn btn-red-square" onclick="addToCart('${product.id}')" style="background-color: #ff3b30; color: #fff; width: 42px; height: 42px; display: flex; justify-content: center; align-items: center; border-radius: 8px; padding: 0; border: none; cursor: pointer; flex-shrink: 0;">
+                                <i data-lucide="shopping-cart" style="width: 20px; height: 20px;"></i>
+                            </button>
+                        </div>
+                    `}
                 </div>
             </div>
         `;
@@ -1459,7 +1471,13 @@ function formatPrice(price) {
 
 // Crear enlace personalizado de WhatsApp
 function getWhatsAppLink(product) {
-    const text = `Hola! Vi en su catálogo web el producto *${product.nombre}* publicado a * $ ${formatPrice(product.precio)}* y me gustaría consultar disponibilidad. Muchas gracias!`;
+    const priceValue = parseFloat(product.precio);
+    let text = "";
+    if (priceValue > 0) {
+        text = `Hola! Vi en su catálogo web el producto *${product.nombre}* publicado a * $ ${formatPrice(product.precio)}* y me gustaría consultar disponibilidad. Muchas gracias!`;
+    } else {
+        text = `Hola! Vi en su catálogo web el producto *${product.nombre}* y me gustaría consultar disponibilidad y precio. Muchas gracias!`;
+    }
     const encodedText = encodeURIComponent(text);
     return `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedText}`;
 }
