@@ -390,11 +390,14 @@ function renderCatalog() {
     });
     
     // Renderizar píldoras de subcategorías si hay una categoría específica activa
+    const swipeHint = document.getElementById("subcategory-swipe-hint");
     if (categoryFilter !== "all" && subcatPillsContainer) {
         renderSubcategoryPills();
         subcatPillsContainer.style.display = "flex";
+        if (swipeHint) swipeHint.style.display = "block";
     } else if (subcatPillsContainer) {
         subcatPillsContainer.style.display = "none";
+        if (swipeHint) swipeHint.style.display = "none";
     }
     
     const filteredProducts = getFilteredAndSortedProducts();
