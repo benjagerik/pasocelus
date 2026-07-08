@@ -1592,6 +1592,19 @@ button, input, select, textarea {
         width: 100%;
         max-width: 100%;
         margin-top: 5px;
+        border: none;
+        background-color: #f1f3f4;
+        border-radius: 4px;
+    }
+    
+    .header-search input {
+        padding: 10px 15px;
+        background-color: transparent;
+    }
+    
+    .header-search button {
+        background-color: transparent;
+        color: #666;
     }
     
     /* Hero Section Mobile */
@@ -1601,6 +1614,30 @@ button, input, select, textarea {
     
     .hero-tagline {
         font-size: 18px;
+    }
+    
+    /* Categories Mobile (Naldo Style) */
+    .category-icon-item {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        width: 100px;
+        min-width: 100px;
+        height: 100px;
+        border: 1px solid #ebebeb;
+        gap: 5px;
+    }
+    
+    .category-icon-item .icon-circle {
+        border-radius: 0;
+        border: none;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .category-icon-item span {
+        font-size: 11px;
     }
     
     .hero-logo-container {
@@ -1620,21 +1657,32 @@ button, input, select, textarea {
     }
     
     .promo-banner {
-        border-radius: 0;
-        padding: 40px 20px;
+        border-radius: 12px;
+        padding: 0;
+        margin: 10px 0;
+        background-position: center;
+        background-size: cover;
+        aspect-ratio: 16 / 7;
+        align-items: center;
     }
     
     .banner-content {
-        padding: 20px 10px;
+        padding: 10px 5px;
     }
     
     .banner-content h2 {
-        font-size: 32px;
+        font-size: 20px;
         line-height: 1.1;
     }
     
     .banner-content h3 {
-        font-size: 16px;
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    
+    .btn-banner {
+        padding: 8px 16px;
+        font-size: 12px;
     }
     
     .bento-item.bento-featured {
@@ -2104,26 +2152,26 @@ button, input, select, textarea {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 80px;
-    height: 80px;
-    background-color: #000000;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
     color: #ffffff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     z-index: 1000;
-    transition: transform 0.3s;
+    transition: all 0.3s ease;
 }
 
 .floating-whatsapp i {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
 }
 
 .floating-whatsapp:hover {
-    transform: scale(1.1);
-    background-color: #333333;
+    transform: scale(1.05);
+    background-color: #20ba56;
 }
 
