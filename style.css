@@ -301,6 +301,46 @@ button, input, select, textarea {
 /* ==========================================================================
    BENEFITS ROW (NALDO STYLE)
    ========================================================================== */
+/* FAQ Section */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.faq-card {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 1px solid var(--border-light);
+}
+
+.faq-card .faq-icon {
+    background: #000;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.faq-card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.faq-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
 .benefits-ecommerce {
     background-color: #ffffff;
     border-bottom: 1px solid var(--border-light);
@@ -1614,6 +1654,27 @@ button, input, select, textarea {
     
     .hero-tagline {
         font-size: 18px;
+    }
+    
+    /* FAQ Section Mobile */
+    .faq-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 16px;
+        padding-bottom: 20px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .faq-grid::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .faq-card {
+        min-width: 280px;
+        scroll-snap-align: center;
+        flex: 0 0 auto;
     }
     
     /* Categories Mobile (Naldo Style) */
