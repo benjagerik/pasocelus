@@ -231,9 +231,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Cargar productos desde Firebase o fallback
 async function initApp() {
+    let firebaseConnected = false;
+    
     if (db) {
+        // Fallback de seguridad: si Firebase no responde en 5 segundos (ej. base de datos no creada), cargar local
+        const connectionTimeout = setTimeout(() => {
+            if (!firebaseConnected) {
+                console.warn("Tiempo de espera agotado conectando a Firebase. ¿Está activada la base de datos en la consola? Cargando datos locales...");
+                fallbackLocalLoad();
+            }
+        }, 5000);
+
         const productsRef = db.ref('products');
         productsRef.on('value', (snapshot) => {
+            firebaseConnected = true;
+            clearTimeout(connectionTimeout);
             const data = snapshot.val();
             if (data) {
                 // Si la data viene como objeto o array, la normalizamos a array filtrando nulos
