@@ -1582,6 +1582,18 @@ button, input, select, textarea {
         display: block;
     }
     
+    .header-inner {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    .header-search {
+        order: 3;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 5px;
+    }
+    
     /* Hero Section Mobile */
     .hero-title {
         font-size: 40px;
@@ -1655,11 +1667,17 @@ button, input, select, textarea {
     }
     
     .store-controls {
-        padding: 16px;
+        padding: 8px 16px;
     }
     
     .store-controls .filters-container {
+        display: none !important;
+    }
+    
+    .benefits-row {
         flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
     }
     
     /* Stats Bar Admin Mobile */
@@ -1683,8 +1701,8 @@ button, input, select, textarea {
     }
     
     .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
     }
     
     .product-card {
