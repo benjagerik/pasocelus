@@ -1707,6 +1707,7 @@ button, input, select, textarea {
     
     .product-card {
         border-radius: var(--radius-md);
+        min-width: 0;
     }
     
     .card-image-area {
@@ -1797,7 +1798,11 @@ button, input, select, textarea {
         border-radius: 50%;
         width: 36px;
         height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+        flex-shrink: 0;
         justify-content: center;
+        justify-self: center;
     }
     
     .card-actions .btn i, .card-actions .btn svg {
@@ -1807,10 +1812,14 @@ button, input, select, textarea {
     }
     
     .card-actions .btn-view-details-secondary {
-        font-size: 10px;
+        font-size: 9px;
         border-radius: 16px;
-        width: auto;
-        padding: 6px 10px;
+        width: 100%;
+        height: auto;
+        padding: 6px 4px;
+        white-space: normal;
+        line-height: 1;
+        text-align: center;
     }
 }
 
