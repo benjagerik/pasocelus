@@ -463,14 +463,12 @@ function renderCatalog() {
                 <h3 class="product-title" title="${product.nombre}">${product.nombre}</h3>
                 
                 <div class="price-row">
-                    ${parseFloat(product.precio) > 0 
+                    ${isCelular 
                         ? `<div class="price-container">
                                <span class="price-currency">$</span>
                                <span class="price-value">${formatPrice(product.precio)}</span>
                            </div>`
-                        : `<div class="price-container" style="color: var(--apple-blue); font-size: 1.1rem;">
-                               Consultar precio
-                           </div>`
+                        : ''
                     }
                     ${isCelular ? `
                     <div class="availability-badge">
@@ -492,7 +490,7 @@ function renderCatalog() {
                             <a href="${getWhatsAppLink(product)}" target="_blank" class="btn btn-black" style="flex: 1; background-color: #000; color: #fff; font-size: 13px; padding: 10px 5px; justify-content: center; display: flex; align-items: center; border-radius: 8px; font-weight: 600; text-decoration: none;">
                                 Consultar precio
                             </a>
-                            <button class="btn btn-red-square" onclick="addToCart('${product.id}')" style="background-color: #ff3b30; color: #fff; width: 42px; height: 42px; display: flex; justify-content: center; align-items: center; border-radius: 8px; padding: 0; border: none; cursor: pointer; flex-shrink: 0;">
+                            <button class="btn btn-black-square" onclick="addToCart('${product.id}')" style="background-color: #000; color: #fff; width: 42px; height: 42px; display: flex; justify-content: center; align-items: center; border-radius: 8px; padding: 0; border: none; cursor: pointer; flex-shrink: 0;">
                                 <i data-lucide="shopping-cart" style="width: 20px; height: 20px;"></i>
                             </button>
                         </div>
